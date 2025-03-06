@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Prata&display=swap');
 @import 'bootstrap/dist/css/bootstrap.min.css';  
 
-
 .prata-regular {
   color: rgb(76, 76, 129);
   font-family: "Prata", serif;
@@ -13,11 +12,41 @@
   font-style: normal;
   font-size: 19px;
 }
-
 .price-regular {
   color: rgb(53, 53, 67);
   font-family: "Prata", serif;
   font-weight: 400;
   font-size: 22px;
   font-style: normal;
+}
+body.light{
+  background-color: #fff;
+  color: black;
+
+}
+body.dark{
+  background-color: black;
+  color: white;
+}
+body.dark .nav{
+  background-color: grey ;
+  color: blueviolet;
+}
+/* .react-multi-carousel-item:hover {
+  transform: scale(1.1);
+} 
+.react-multi-carousel-dot button {
+  background: #6f42c1 !important; 
+  border: none;
+}
+
+.react-multi-carousel-dot--active button {
+  background: #ffc107 !important;
+}
+*/
+
+.text-gradient {
+  background: linear-gradient(to right, #6f42c1, #d63384);
+  -webkit-background-clip: text;
+  color: transparent;
 }

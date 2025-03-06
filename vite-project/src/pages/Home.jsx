@@ -1,10 +1,12 @@
 import React from "react";
-import Hero from "../components/Hero";
+import LatestCollection from "../components/LatestCollection";
+import Carousel from "../components/Carousel";
 
 const Home = () => {
   return (
     <div>
-      <Hero />
+      <Carousel />
+      <LatestCollection />
     </div>
   );
 };

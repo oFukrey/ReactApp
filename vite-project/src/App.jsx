@@ -9,6 +9,7 @@ import Navbar from "./components/navbar";
 import Collection from "./pages/Collection";
 import Footer from "./components/Footer";
 import Contact from "./pages/Contact";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/collection" element={<Collection />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
       <Footer />
     </div>
