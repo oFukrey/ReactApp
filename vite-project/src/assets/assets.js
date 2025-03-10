@@ -22,7 +22,9 @@ import moon from './moon.png'
 import hero from './hero.webp'
 import hero2 from './hero2.webp'
 import hero3 from './hero3.webp'
-
+import bin from './recycle_bin.png'
+import tshirt from './tshirt.jpg'
+import login from './login.png'
 
 export const assets = {
   cart,
@@ -48,7 +50,10 @@ export const assets = {
   moon,
   hero,
   hero2,
-  hero3
+  hero3,
+  bin,
+  tshirt,
+  login
 
 }
 
@@ -57,65 +62,75 @@ export const imageData = [
   id : 1,
   image : sareeaagyeyipretty,
   price : 326,
+  name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
   description : "Aagyey ",
   field: "bestSeller",
-  isValid:false
+  isValid:false,
+  sizes:["S","M","L","XL","XXL"]
 },
 {
   id : 2,
   image : sareelycra,
-  price : 292,
+  price : 292,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
   description : "Lycra Saree",
   field: "bestSeller",
-  isValid:true
+  isValid:true,
+  sizes:["S","M","L","XL","XXL"]
+
 },
 {
   id : 3,
   image :   sareealishasensation,
-  price : 264,
+  price : 264,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
   description : "Aagyeyi ",
   field: "bestSeller",
-  isValid:false
+  isValid:false,
+  sizes:["S","M","L","XL","XXL"]
 },
 {
   id : 4,
   image : sareeaagyeyiattractive,
-  price : 332,
+  price : 332,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
   description : "Alisha ",
   field: "bestSeller",
-  isValid:false
+  isValid:false,
+  sizes:["S","M","L","XL","XXL"]
 }, 
 {
   id : 5,
   image : sareeaishani,
-  price : 480,
+  price : 480,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
   description : "Aishani ",
   field: "bestSeller",
-  isValid:true
+  isValid:true,
+  sizes:["S","M","L","XL","XXL"]
 },
 {
   id : 6,
   image : sareealisha,
-  price : 520,
+  price : 520,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
   description : "Alisha Saree",
   field: "bestSeller",
-  isValid:true
+  isValid:true,
+  sizes:["S","M","L","XL","XXL"]
 },
 {
   id : 7,
   image :   sareeetp,
-  price : 348,
+  price : 348,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
   description : "ETP ",
   field: "bestSeller",
-  isValid:false
+  isValid:false,
+  sizes:["S","M","L","XL","XXL"]
 },
 {
   id : 8,
   image : sareechitra,sareeetp,
-  price : 250,
+  price : 250,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
   description : "Chitra ",
   field: "bestSeller",
-  isValid:true
+  isValid:true,
+  sizes:["S","M","L","XL","XXL"]
 }
 ]
 

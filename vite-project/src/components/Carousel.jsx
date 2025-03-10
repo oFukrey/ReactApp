@@ -30,16 +30,16 @@ const MyCarousel = () => {
       infinite={true}
       autoPlay={true}
       autoPlaySpeed={2000}
-      removeArrowOnDeviceType={["tablet", "mobile"]}
+      removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
       showDots={true}
     >
       {carouselCollection.map((image) => (
-        <div key={image.id} className="text-center m-2">
+        <div key={image.id} className="text-center m-2 -z-10">
           <img
             src={image.image}
             alt=""
             className="img-fluid mx-auto d-block shadow-lg rounded"
-            style={{ width: "300px", height: "400px", objectFit: "cover" }}
+            style={{ width: "300px", height: "500px", objectFit: "fill" }}
           />
           <h5 className="mt-3">{image.description}</h5>
           <p>₹{image.price}</p>
