@@ -7,7 +7,7 @@ const SignUp = () => {
       {/* <div className="row shadow-lg rounded-4 overflow-hidden"> */}
       <div className="col-md-6 p-4">
         <form className="d-flex flex-column gap-4">
-          <h2 className="text-start fw-bold">Sign Up</h2>
+          <h2 className="text-start fw-bold">Register</h2>
           <div className="text-start">
             <label className="form-label fw-semibold" htmlFor="">
               Name

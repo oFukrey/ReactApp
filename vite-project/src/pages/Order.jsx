@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 
 const Order = () => {
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const saveCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(saveCart);
+    console.log(saveCart);
+  }, []);
+
   return (
     <div className="container py-5">
       <div className="row " style={{ overflow: "hidden" }}>
@@ -136,62 +144,43 @@ const Order = () => {
             </form>
           </div>
         </div>
-        <div className="col-md-6 p-4 bg-white shadow-sm rounded ">
+
+        <div className="col-md-6 p-4 bg-white shadow-sm rounded">
           {/* Order Details + Payment */}
 
           <h3 className="text-start">DETAIL PRODUCT</h3>
-
-          <div
-            className="card mb-2 p-2"
-            style={{ maxWidth: "540px", maxHeight: "180px" }}
-          >
-            <div className="row g-0">
-              <div className="col-md-3">
-                <img
-                  src={assets.cloth3}
-                  className="img-fluid rounded-start"
-                  alt="..."
-                />
-              </div>
-              <div className="col-md-9">
-                <div className="card-body d-flex justify-content-between align-items-center">
-                  <div>
-                    <h5 className="card-title">Production</h5>
-                    <p className="card-text">Wider card</p>
+          {cart.map((item) => (
+            <div
+              className="card mb-2 p-2"
+              style={{ maxWidth: "540px", maxHeight: "180px" }}
+              key={item.id}
+            >
+              <div className="row g-0">
+                <div
+                  className="col-md-3 d-flex align-items-center"
+                  style={{ width: "60px", height: "auto" }}
+                >
+                  <img
+                    src={item.image}
+                    className="img-fluid rounded-start"
+                    style={{ objectFit: "fill" }}
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-9">
+                  <div className="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                      <h5 className="card-title">OFukre</h5>
+                      <p className="card-text">{item.name}</p>
+                    </div>
+                    <h5 className="card-text display-7">
+                      ₹{item.price * item.quantity}
+                    </h5>
                   </div>
-                  <h5 className="card-text display-7">₹360</h5>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div
-            className="card mb-2 p-2"
-            style={{
-              maxWidth: "540px",
-              maxHeight: "180px",
-            }}
-          >
-            <div className="row g-0">
-              <div className="col-md-3 h-50" style={{ overflow: "hidden" }}>
-                <img
-                  src={assets.cloth2}
-                  className="img-fluid rounded-start w-100 h-100"
-                  style={{ objectFit: "cover" }}
-                  alt="..."
-                />
-              </div>
-              <div className="col-md-9">
-                <div className="card-body d-flex justify-content-between align-items-center">
-                  <div>
-                    <h5 className="card-title">Production</h5>
-                    <p className="card-text">Wider card</p>
-                  </div>
-                  <h5 className="card-text display-7">₹390</h5>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
 
           <ol className="list-group list-group-numbered">
             <li className=" d-flex justify-content-between align-items-start">

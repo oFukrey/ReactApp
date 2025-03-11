@@ -7,7 +7,7 @@ const Testimonial = () => {
       <h2>Customer</h2>
       <br />
       <h1>TESTIMONIALS</h1>
-      <div className="d-flex gap-3 p-3">
+      <div className="  d-flex gap-3 p-3">
         <div
           className="shadow p-3 mb-5 rounded "
           style={{
@@ -37,7 +37,7 @@ const Testimonial = () => {
             style={{
               backgroundColor: "#38502b",
               borderRadius: "10px",
-              marginTop: "-60px", // Adjust the gap between image and box
+              marginTop: "-60px",
             }}
           >
             <p className="pt-2" style={{ color: "white" }}>
@@ -124,7 +124,7 @@ const Testimonial = () => {
             style={{
               backgroundColor: "#38502b",
               borderRadius: "10px",
-              marginTop: "-60px", // Adjust the gap between image and box
+              marginTop: "-60px",
             }}
           >
             <p className="pt-2" style={{ color: "white" }}>

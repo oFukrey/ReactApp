@@ -1,157 +1,113 @@
-import React, { useState } from "react";
-import { assets } from "../assets/assets";
+import React, { use, useEffect, useState } from "react";
+import { assets, imageData } from "../assets/assets";
+import Product from "./Product";
+import { Link } from "react-router-dom";
+import CartTotal from "../components/CartTotal";
 
 const Cart = () => {
   const [count, setCount] = useState(1);
-  const increment = () => {
-    setCount(count + 1);
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const saveCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(saveCart);
+  }, []);
+
+  const removeProduct = (id) => {
+    const updatedCart = cart.filter((product) => product.id !== parseInt(id));
+
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
-  const decrement = () => {
-    setCount(count - 1);
+
+  const increment = (id) => {
+    setCart((prevCart) => {
+      let updatedQuantity = prevCart.map((item) =>
+        item.id === parseInt(id)
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+      localStorage.setItem("cart", JSON.stringify(updatedQuantity));
+      return updatedQuantity;
+    });
   };
+
+  const decrement = (id) => {
+    setCart((prevCart) => {
+      let updatedQuantity = prevCart.map((item) =>
+        item.id === parseInt(id)
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+      localStorage.setItem("cart", JSON.stringify(updatedQuantity));
+      return updatedQuantity;
+    });
+  };
+
   return (
     <div className="container text-center">
       <h2 className="text-start">YOUR SHOPPING</h2>
       <div className="row">
         <div className="col-sm-8">
-          <div className=" d-flex align-items-center justify-content-center">
-            <div className="col-sm-2">
-              <img
-                className="p-2"
-                src={assets.tshirt}
-                style={{ width: "120px" }}
-                alt=""
-              />
-            </div>
-            <div className="col-sm-3">
-              <p className="" style={{ color: "green" }}>
-                Tracksuit
-              </p>
-            </div>
-            <div className="col-sm-2">
-              <span className="border border-dark rounded-5 d-block mx-4 py-3">
-                S <br />
-              </span>
-            </div>
-            <div className="col-sm-1">
-              <img
-                className="m-1"
-                src={assets.bin}
-                alt=""
-                style={{ width: "20px" }}
-              />
-            </div>
+          {cart.map((item) => (
             <div
-              className="col-sm-3 d-flex justify-content-center align-items-center gap-2"
-              style={{ height: "30px" }}
+              className=" d-flex align-items-center justify-content-center"
+              key={item.id}
             >
-              <button
-                className="bg-success rounded"
-                onClick={() => decrement()}
-                style={{ width: "28px", height: "35px" }}
-              >
-                <p className="">-</p>
-              </button>
-              <p className="items-center pt-3">{count}</p>
-              <button
-                className="bg-success rounded"
-                onClick={() => increment()}
-                style={{ width: "28px", height: "35px" }}
-              >
-                <p className="">+</p>
-              </button>
-            </div>
-            <div className="col-sm-1">₹290</div>
-          </div>
-          <div className=" d-flex align-items-center justify-content-center">
-            <div className="col-sm-2">
-              <img
-                className="p-2"
-                src={assets.tshirt}
-                style={{ width: "120px" }}
-                alt=""
-              />
-            </div>
-            <div className="col-sm-3">
-              <p className="" style={{ color: "green" }}>
-                Tracksuit
-              </p>
-            </div>
-            <div className="col-sm-2">
-              <span className="border border-dark rounded-5 d-block mx-4 py-3">
-                S <br />
-              </span>
-            </div>
-            <div className="col-sm-1">
-              <img
-                className="m-1"
-                src={assets.bin}
-                alt=""
-                style={{ width: "20px" }}
-              />
-            </div>
-            <div
-              className="col-sm-3 d-flex justify-content-center align-items-center gap-2"
-              style={{ height: "30px" }}
-            >
-              <button
-                className="bg-success rounded"
-                onClick={() => decrement()}
-                style={{ width: "28px", height: "35px" }}
-              >
-                <p className="">-</p>
-              </button>
-              <p className="items-center pt-3">{count}</p>
-              <button
-                className="bg-success rounded"
-                onClick={() => increment()}
-                style={{ width: "28px", height: "35px" }}
-              >
-                <p className="">+</p>
-              </button>
-            </div>
-            <div className="col-sm-1">₹290</div>
-          </div>
-        </div>
-        <div className="col-sm-4 text-start shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-          <ol className="list-group my-2 ">
-            <li className="d-flex justify-content-between align-items-start my-3">
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">Subtotal</div>
+              <div className="col-sm-2">
+                <img
+                  className="p-2"
+                  src={item.image}
+                  style={{ width: "100px" }}
+                  alt=""
+                />
               </div>
-              <span className="">₹14</span>
-            </li>
-            <li className="d-flex justify-content-between align-items-start mt-3">
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">Shipping Fees</div>
-                <div className="d-flex">
-                  <p>Delivery to&nbsp; </p>
-                  <p className="" style={{ color: "green" }}>
-                    Great Britain
-                  </p>
-                </div>
-              </div>
-              <span className="">₹2</span>
-            </li>
-            <li className="d-flex justify-content-between align-items-start my-2">
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">Coupon/Discount</div>
+              <div className="col-sm-3">
                 <p className="" style={{ color: "green" }}>
-                  Enter a coupon code
+                  {item.name}
                 </p>
               </div>
-            </li>
-            <li className="d-flex justify-content-between align-items-start mb-3 bg-secondary-subtle rounded py-2 px-1">
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">Total</div>
-                incl. VAT
+              <div className="col-sm-2">
+                <span className="border border-dark rounded-5 d-block mx-4 py-3">
+                  {item.size} <br />
+                </span>
               </div>
-              <span className="">₹19</span>
-            </li>
-            <button className="w-full btn btn-warning mt-2">
-              Proceed to checkout
-            </button>
-          </ol>
+              <div className="col-sm-1">
+                <button onClick={() => removeProduct(item.id)}>
+                  <img
+                    className="m-1"
+                    src={assets.bin}
+                    alt=""
+                    style={{ width: "20px" }}
+                  />
+                </button>
+              </div>
+              <div
+                className="col-sm-3 d-flex justify-content-center align-items-center gap-2"
+                style={{ height: "30px" }}
+              >
+                <button
+                  className="bg-success rounded"
+                  onClick={() => decrement(item.id)}
+                  style={{ width: "28px", height: "35px" }}
+                >
+                  <p className="">-</p>
+                </button>
+                <p className="items-center pt-3">{item.quantity}</p>
+                <button
+                  className="bg-success rounded"
+                  onClick={() => increment(item.id)}
+                  style={{ width: "28px", height: "35px" }}
+                >
+                  <p className="">+</p>
+                </button>
+              </div>
+              <div className="col-sm-1">₹{item.price * item.quantity} </div>
+            </div>
+          ))}
+        </div>
+        <div className="col-sm-4 text-start shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+          <CartTotal />
         </div>
       </div>
     </div>

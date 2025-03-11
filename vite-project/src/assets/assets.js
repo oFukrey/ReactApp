@@ -62,8 +62,8 @@ export const imageData = [
   id : 1,
   image : sareeaagyeyipretty,
   price : 326,
-  name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
-  description : "Aagyey ",
+  description:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
+  name : "Aagyey ",
   field: "bestSeller",
   isValid:false,
   sizes:["S","M","L","XL","XXL"]
@@ -71,8 +71,9 @@ export const imageData = [
 {
   id : 2,
   image : sareelycra,
-  price : 292,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
-  description : "Lycra Saree",
+  price : 292,
+  description:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
+  name : "Lycra Saree",
   field: "bestSeller",
   isValid:true,
   sizes:["S","M","L","XL","XXL"]
@@ -81,8 +82,8 @@ export const imageData = [
 {
   id : 3,
   image :   sareealishasensation,
-  price : 264,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
-  description : "Aagyeyi ",
+  price : 264,description:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
+  name : "Aagyeyi ",
   field: "bestSeller",
   isValid:false,
   sizes:["S","M","L","XL","XXL"]
@@ -90,8 +91,8 @@ export const imageData = [
 {
   id : 4,
   image : sareeaagyeyiattractive,
-  price : 332,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
-  description : "Alisha ",
+  price : 332,description:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
+  name : "Alisha ",
   field: "bestSeller",
   isValid:false,
   sizes:["S","M","L","XL","XXL"]
@@ -99,8 +100,8 @@ export const imageData = [
 {
   id : 5,
   image : sareeaishani,
-  price : 480,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
-  description : "Aishani ",
+  price : 480,description:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
+  name : "Aishani ",
   field: "bestSeller",
   isValid:true,
   sizes:["S","M","L","XL","XXL"]
@@ -108,8 +109,8 @@ export const imageData = [
 {
   id : 6,
   image : sareealisha,
-  price : 520,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
-  description : "Alisha Saree",
+  price : 520,description:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
+  name : "Alisha Saree",
   field: "bestSeller",
   isValid:true,
   sizes:["S","M","L","XL","XXL"]
@@ -117,8 +118,8 @@ export const imageData = [
 {
   id : 7,
   image :   sareeetp,
-  price : 348,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
-  description : "ETP ",
+  price : 348,description:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
+  name : "ETP ",
   field: "bestSeller",
   isValid:false,
   sizes:["S","M","L","XL","XXL"]
@@ -126,8 +127,8 @@ export const imageData = [
 {
   id : 8,
   image : sareechitra,sareeetp,
-  price : 250,name:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
-  description : "Chitra ",
+  price : 250,description:"Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.",
+  name : "Chitra ",
   field: "bestSeller",
   isValid:true,
   sizes:["S","M","L","XL","XXL"]

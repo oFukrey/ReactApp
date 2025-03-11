@@ -18,7 +18,7 @@ import SignUp from "./pages/SignUp";
 
 function App() {
   return (
-    <div className="">
+    <div className="m-0 p-0">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

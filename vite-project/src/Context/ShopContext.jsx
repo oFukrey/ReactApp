@@ -22,10 +22,10 @@ const ShopContextProvider = (props) => {
     setCount(count - 1);
   };
 
-  const addToCart = (product, size, quantity) => {
-    setCart((prevCart) => [...prevCart, { ...product, size, quantity }]);
-    console.log(size);
-  };
+  // const addToCart = (product, size, quantity) => {
+  //   setCart((prevCart) => [...prevCart, { ...product, size, quantity }]);
+  //   console.log(size);
+  // };
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
@@ -37,7 +37,6 @@ const ShopContextProvider = (props) => {
     decrement,
     count,
     navigate,
-    addToCart,
   };
 
   return (

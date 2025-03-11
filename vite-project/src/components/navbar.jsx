@@ -130,10 +130,6 @@ const NavbarComponent = () => {
             <NavLink to="/about" className="nav-link">
               About
             </NavLink>
-
-            <NavLink to="/order" className="nav-link">
-              Order
-            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
