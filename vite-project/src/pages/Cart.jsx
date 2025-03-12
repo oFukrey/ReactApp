@@ -10,6 +10,7 @@ const Cart = () => {
 
   useEffect(() => {
     const saveCart = JSON.parse(localStorage.getItem("cart")) || [];
+    getCartAmount();
     setCart(saveCart);
   }, []);
 
@@ -42,6 +43,25 @@ const Cart = () => {
       localStorage.setItem("cart", JSON.stringify(updatedQuantity));
       return updatedQuantity;
     });
+  };
+
+  const getCartAmount = () => {
+    let totalAmount = 0;
+    //console.log(cart);
+    for (const items in cart) {
+      //console.log(items);
+      let itemInfo = cart.find((product) => product.id === items);
+
+      console.log(itemInfo);
+      for (const item in cart[items]) {
+        try {
+          if (cart[items][item] > 0) {
+            totalAmount += itemInfo.price * cart[items][item];
+          }
+        } catch (error) {}
+      }
+    }
+    return totalAmount;
   };
 
   return (
@@ -107,7 +127,45 @@ const Cart = () => {
           ))}
         </div>
         <div className="col-sm-4 text-start shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-          <CartTotal />
+          <ol className="list-group my-2 ">
+            <li className="d-flex justify-content-between align-items-start my-3">
+              <div className="ms-2 me-auto">
+                <div className="fw-bold">Subtotal</div>
+              </div>
+              <span>{getCartAmount()}.00</span>
+              {/* <span className="">₹14</span> */}
+            </li>
+            <li className="d-flex justify-content-between align-items-start mt-3">
+              <div className="ms-2 me-auto">
+                <div className="fw-bold">Shipping Fees</div>
+                <div className="d-flex">
+                  <p>Delivery to&nbsp; </p>
+                  <p className="" style={{ color: "green" }}>
+                    Great Britain
+                  </p>
+                </div>
+              </div>
+              <span className="">₹2</span>
+            </li>
+            <li className="d-flex justify-content-between align-items-start my-2">
+              <div className="ms-2 me-auto">
+                <div className="fw-bold">Coupon/Discount</div>
+                <p className="" style={{ color: "green" }}>
+                  Enter a coupon code
+                </p>
+              </div>
+            </li>
+            <li className="d-flex justify-content-between align-items-start mb-3 bg-secondary-subtle rounded py-2 px-1">
+              <div className="ms-2 me-auto">
+                <div className="fw-bold">Total</div>
+                incl. VAT
+              </div>
+              <span className="">₹19</span>
+            </li>
+            <Link to="/order" className="btn btn-warning">
+              Go to Checkout
+            </Link>
+          </ol>
         </div>
       </div>
     </div>

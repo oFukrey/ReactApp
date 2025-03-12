@@ -10,6 +10,7 @@ const Product = () => {
   const { increment, decrement, navigate } = useContext(ShopContext);
   const [size, setSize] = useState();
   const [cart, setCart] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
   const { id } = useParams();
   const product = imageData.find((product) => product.id === parseInt(id));
 
@@ -18,6 +19,8 @@ const Product = () => {
   }
 
   const handleSize = (selectedSize) => {
+    console.log(selectedSize);
+    setIsClicked(!isClicked);
     setSize(selectedSize);
   };
 
@@ -118,14 +121,16 @@ const Product = () => {
           <div className="card d-flex text-start shadow-sm p-3 ">
             <h6 className="card-title px-2 pb-2">Select Size</h6>
             <div className="d-flex flex flex-wrap gap-2 justify-content-center mx-3">
-              {product.sizes.map((size) => (
+              {product.sizes.map((sizeOption) => (
                 <button
-                  key={size}
-                  value={size}
-                  onClick={(e) => handleSize(e.target.value)}
-                  className="border border-dark rounded-pill p-2 text-center"
+                  key={sizeOption}
+                  value={sizeOption}
+                  onClick={() => handleSize(sizeOption)}
+                  className={`border rounded-pill p-2 text-center ${
+                    size === sizeOption ? "btn btn-success " : "btn btn-primary"
+                  }`}
                 >
-                  {size}
+                  {sizeOption}
                 </button>
               ))}
             </div>
