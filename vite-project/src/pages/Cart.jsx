@@ -1,66 +1,50 @@
-import React, { use, useEffect, useState } from "react";
-import { assets, imageData } from "../assets/assets";
-import Product from "./Product";
+import React, { useEffect, useState } from "react";
+import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
-import CartTotal from "../components/CartTotal";
 
 const Cart = () => {
-  const [count, setCount] = useState(1);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const saveCart = JSON.parse(localStorage.getItem("cart")) || [];
-    getCartAmount();
-    setCart(saveCart);
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(savedCart);
   }, []);
 
   const removeProduct = (id) => {
     const updatedCart = cart.filter((product) => product.id !== parseInt(id));
-
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const increment = (id) => {
     setCart((prevCart) => {
-      let updatedQuantity = prevCart.map((item) =>
+      const updatedCart = prevCart.map((item) =>
         item.id === parseInt(id)
           ? { ...item, quantity: item.quantity + 1 }
           : item
       );
-      localStorage.setItem("cart", JSON.stringify(updatedQuantity));
-      return updatedQuantity;
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return updatedCart;
     });
   };
 
   const decrement = (id) => {
     setCart((prevCart) => {
-      let updatedQuantity = prevCart.map((item) =>
+      const updatedCart = prevCart.map((item) =>
         item.id === parseInt(id)
           ? { ...item, quantity: item.quantity - 1 }
           : item
       );
-      localStorage.setItem("cart", JSON.stringify(updatedQuantity));
-      return updatedQuantity;
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return updatedCart;
     });
   };
 
   const getCartAmount = () => {
     let totalAmount = 0;
-    //console.log(cart);
-    for (const items in cart) {
-      //console.log(items);
-      let itemInfo = cart.find((product) => product.id === items);
-
-      console.log(itemInfo);
-      for (const item in cart[items]) {
-        try {
-          if (cart[items][item] > 0) {
-            totalAmount += itemInfo.price * cart[items][item];
-          }
-        } catch (error) {}
-      }
-    }
+    cart.forEach((item) => {
+      totalAmount += item.price * item.quantity;
+    });
     return totalAmount;
   };
 
@@ -70,17 +54,9 @@ const Cart = () => {
       <div className="row">
         <div className="col-sm-8">
           {cart.map((item) => (
-            <div
-              className=" d-flex align-items-center justify-content-center"
-              key={item.id}
-            >
+            <div className="d-flex align-items-center justify-content-center" key={item.id}>
               <div className="col-sm-2">
-                <img
-                  className="p-2"
-                  src={item.image}
-                  style={{ width: "100px" }}
-                  alt=""
-                />
+                <img className="p-2" src={item.image} style={{ width: "100px" }} alt="" />
               </div>
               <div className="col-sm-3">
                 <p className="" style={{ color: "green" }}>
@@ -102,23 +78,12 @@ const Cart = () => {
                   />
                 </button>
               </div>
-              <div
-                className="col-sm-3 d-flex justify-content-center align-items-center gap-2"
-                style={{ height: "30px" }}
-              >
-                <button
-                  className="bg-success rounded"
-                  onClick={() => decrement(item.id)}
-                  style={{ width: "28px", height: "35px" }}
-                >
+              <div className="col-sm-3 d-flex justify-content-center align-items-center gap-2" style={{ height: "30px" }}>
+                <button className="bg-success rounded" onClick={() => decrement(item.id)} style={{ width: "28px", height: "35px" }}>
                   <p className="">-</p>
                 </button>
                 <p className="items-center pt-3">{item.quantity}</p>
-                <button
-                  className="bg-success rounded"
-                  onClick={() => increment(item.id)}
-                  style={{ width: "28px", height: "35px" }}
-                >
+                <button className="bg-success rounded" onClick={() => increment(item.id)} style={{ width: "28px", height: "35px" }}>
                   <p className="">+</p>
                 </button>
               </div>
@@ -132,8 +97,7 @@ const Cart = () => {
               <div className="ms-2 me-auto">
                 <div className="fw-bold">Subtotal</div>
               </div>
-              <span>{getCartAmount()}.00</span>
-              {/* <span className="">₹14</span> */}
+              <span>₹{getCartAmount()}</span>
             </li>
             <li className="d-flex justify-content-between align-items-start mt-3">
               <div className="ms-2 me-auto">
@@ -145,14 +109,12 @@ const Cart = () => {
                   </p>
                 </div>
               </div>
-              <span className="">₹2</span>
+              <span>₹2</span>
             </li>
             <li className="d-flex justify-content-between align-items-start my-2">
               <div className="ms-2 me-auto">
                 <div className="fw-bold">Coupon/Discount</div>
-                <p className="" style={{ color: "green" }}>
-                  Enter a coupon code
-                </p>
+                <p style={{ color: "green" }}>Enter a coupon code</p>
               </div>
             </li>
             <li className="d-flex justify-content-between align-items-start mb-3 bg-secondary-subtle rounded py-2 px-1">
@@ -160,7 +122,7 @@ const Cart = () => {
                 <div className="fw-bold">Total</div>
                 incl. VAT
               </div>
-              <span className="">₹19</span>
+              <span>₹{getCartAmount() + 10}</span> {/* Adding shipping fees */}
             </li>
             <Link to="/order" className="btn btn-warning">
               Go to Checkout
