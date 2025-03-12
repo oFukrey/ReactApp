@@ -7,6 +7,7 @@ const ShopContextProvider = (props) => {
   const [theme, setTheme] = useState("light");
   const [count, setCount] = useState(0);
   const [cart, setCart] = useState([]);
+  const shippingFee = 10;
 
   const navigate = useNavigate();
 
@@ -22,10 +23,6 @@ const ShopContextProvider = (props) => {
     setCount(count - 1);
   };
 
-  // const addToCart = (product, size, quantity) => {
-  //   setCart((prevCart) => [...prevCart, { ...product, size, quantity }]);
-  //   console.log(size);
-  // };
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
@@ -37,6 +34,9 @@ const ShopContextProvider = (props) => {
     decrement,
     count,
     navigate,
+    shippingFee,
+    // getCartAmount,
+    // sendTotalAmount,
   };
 
   return (

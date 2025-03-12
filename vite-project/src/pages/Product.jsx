@@ -138,7 +138,7 @@ const Product = () => {
           <div className="card d-flex text-start shadow-sm p-3 ">
             <div className="card-header">Product Details</div>
             <br />
-            <p className="blockquote-footer">{product.description}</p>
+            <p className="lh-base">{product.description}</p>
           </div>
         </Col>
       </Row>

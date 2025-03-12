@@ -30,7 +30,7 @@ const LatestCollection = () => {
               style={{ height: "300px", objectFit: "fill" }}
             />
             <div className="card-body">
-              <p className="card-text prata-regular">{image.description}</p>
+              <p className="card-text prata-regular">{image.name}</p>
               <div className="d-flex justify-content-between align-items-center ">
                 <p className="price-regular me-auto pt-3">₹{image.price}</p>
                 <img

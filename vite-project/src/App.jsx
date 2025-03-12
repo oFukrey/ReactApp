@@ -15,6 +15,8 @@ import Profile from "./pages/Profile";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Checkout from "./pages/Checkout";
+import UserOrders from "./Admin/UserOrders";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/admin/userorder" element={<UserOrders />} />
       </Routes>
       <Footer />
     </div>
