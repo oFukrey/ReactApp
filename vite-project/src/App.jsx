@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import UserOrders from "./Admin/UserOrders";
+import Dashboard from "./Admin/Dashboard";
 
 function App() {
   return (
@@ -35,6 +36,10 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin/userorder" element={<UserOrders />} />
+
+        {/* Admin */}
+
+        <Route path="/admin/dashboard" element={<Dashboard />} />
       </Routes>
       <Footer />
     </div>
