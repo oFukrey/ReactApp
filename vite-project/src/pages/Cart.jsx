@@ -5,6 +5,7 @@ import { ShopContext } from "../Context/ShopContext";
 
 const Cart = () => {
   const { navigate, shippingFee } = useContext(ShopContext);
+
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -47,7 +48,6 @@ const Cart = () => {
     cart.forEach((item) => {
       totalAmount += item.price * item.quantity;
     });
-    //localStorage.setItem("cart", JSON.stringify(totalAmount));
     return totalAmount;
   };
 
@@ -137,7 +137,6 @@ const Cart = () => {
                   </p>
                 </div>
               </div>
-              <span>₹10</span>
             </li>
             <li className="d-flex justify-content-between align-items-start my-2">
               <div className="ms-2 me-auto">
@@ -150,7 +149,6 @@ const Cart = () => {
                 <div className="fw-bold">Total</div>
                 incl. VAT
               </div>
-              <span>₹{getCartAmount() + shippingFee}</span>
             </li>
             <Link to="/checkout" className="btn btn-warning">
               Go to Checkout{sendTotalAmount()}
