@@ -5,7 +5,7 @@ const Sidebar = () => {
   return (
     <div
       className="text-white vh-100 position-fixed top-0 start-0"
-      style={{ width: "250px", zIndex: 1050, backgroundColor: "#181e28" }}
+      style={{ width: "220px", zIndex: 1050, backgroundColor: "#181e28" }}
     >
       <div
         className="p-3"
@@ -13,7 +13,7 @@ const Sidebar = () => {
       >
         <img
           className=""
-          style={{ width: "200px", height: "60px" }}
+          style={{ width: "180px", height: "60px" }}
           src={assets.logo}
           alt=""
         />
@@ -39,7 +39,7 @@ const Sidebar = () => {
           />
 
           <li>
-            <a style={{ color: "inherit", textDecoration: "none" }} href="#">
+            <a style={{ color: "inherit", textDecoration: "none" }} href="/">
               <span>Dashboard</span>
             </a>
           </li>
@@ -51,7 +51,10 @@ const Sidebar = () => {
             }}
           />
           <li>
-            <a style={{ color: "inherit", textDecoration: "none" }} href="#">
+            <a
+              style={{ color: "inherit", textDecoration: "none" }}
+              href="addproduct"
+            >
               <span>Add Products</span>
             </a>
           </li>

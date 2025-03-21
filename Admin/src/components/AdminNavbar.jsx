@@ -28,7 +28,7 @@ const NavbarComponent = () => {
         backgroundColor: "#ffffff",
         height: "70px",
         zIndex: 1000,
-        marginLeft: "250px",
+        marginLeft: "220px",
       }}
     >
       <Container className="d-flex justify-content-between">

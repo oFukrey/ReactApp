@@ -30,12 +30,12 @@ const Collection = () => {
             <p className="card-text prata-regular">{image.name}</p>
             <div className="d-flex justify-content-between align-items-center ">
               <p className="price-regular me-auto pt-3">₹{image.price}</p>
-              <img
+              {/* <img
                 className="pb-1"
                 src={assets.add_to_favorites}
                 width="23"
                 alt=""
-              />
+              /> */}
             </div>
           </div>
         </div>
